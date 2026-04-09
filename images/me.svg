@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="900" viewBox="0 0 720 900" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="720" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#141820"/>
+      <stop offset="0.45" stop-color="#1a2428"/>
+      <stop offset="1" stop-color="#0e1218"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(360 280) rotate(90) scale(320 400)">
+      <stop stop-color="#6ee7c5" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#6ee7c5" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="720" height="900" rx="21" fill="url(#bg)"/>
+  <rect width="720" height="900" rx="21" fill="url(#glow)"/>
+  <circle cx="360" cy="300" r="72" stroke="rgba(110,231,197,0.22)" stroke-width="1.5" fill="none"/>
+  <path d="M240 520c0-66 54-120 120-120s120 54 120 120v40H240v-40z" stroke="rgba(110,231,197,0.12)" stroke-width="1.5" fill="rgba(110,231,197,0.04)"/>
+  <text x="360" y="780" text-anchor="middle" fill="rgba(139,144,156,0.55)" font-family="system-ui,Segoe UI,sans-serif" font-size="13" letter-spacing="0.08em">Replace with your photo</text>
+  <text x="360" y="805" text-anchor="middle" fill="rgba(139,144,156,0.35)" font-family="ui-monospace,Courier New,monospace" font-size="11">Save as me.jpg in /images</text>
+</svg>
