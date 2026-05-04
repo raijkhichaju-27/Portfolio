@@ -1,19 +1,34 @@
 /* —— CSS variables —— */
 :root {
-  --bg: #0c0d10;
-  --bg-elevated: #12141a;
-  --surface: #181b24;
-  --border: rgba(255, 255, 255, 0.08);
-  --text: #e8eaef;
-  --text-muted: #8b909c;
-  --accent: #6ee7c5;
-  --accent-dim: rgba(110, 231, 197, 0.15);
-  --accent-2: #a78bfa;
+  /* Coolors: https://coolors.co/palette/001219-005f73-0a9396-94d2bd-e9d8a6-ee9b00-ca6702-bb3e03-ae2012-9b2226 */
+  --palette-ink: #001219;
+  --palette-deep-teal: #005f73;
+  --palette-teal: #0a9396;
+  --palette-mint: #94d2bd;
+  --palette-cream: #e9d8a6;
+  --palette-gold: #ee9b00;
+  --palette-orange: #ca6702;
+  --palette-rust: #bb3e03;
+  --palette-red: #ae2012;
+  --palette-crimson: #9b2226;
+
+  --bg: var(--palette-ink);
+  --bg-elevated: #082a32;
+  --surface: #0c3d49;
+  --border: rgba(148, 210, 189, 0.14);
+  --text: var(--palette-cream);
+  --text-muted: rgba(148, 210, 189, 0.82);
+  --accent: var(--palette-teal);
+  --accent-dim: rgba(10, 147, 150, 0.18);
+  --accent-2: var(--palette-mint);
+  --accent-hover: var(--palette-mint);
+  --accent-cta: var(--palette-gold);
+  --accent-cta-hover: var(--palette-orange);
   --font: "Instrument Sans", system-ui, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, monospace;
   --radius: 12px;
   --radius-sm: 8px;
-  --shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+  --shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
   --header-h: 72px;
 }
 
@@ -85,7 +100,7 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(12, 13, 16, 0.78);
+  background: rgba(0, 18, 25, 0.82);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
@@ -139,11 +154,11 @@ a:hover {
   border-radius: 999px;
   background: var(--accent-dim);
   color: var(--accent) !important;
-  border: 1px solid rgba(110, 231, 197, 0.35);
+  border: 1px solid rgba(10, 147, 150, 0.35);
 }
 
 .nav-cta:hover {
-  background: rgba(110, 231, 197, 0.22);
+  background: rgba(10, 147, 150, 0.22);
 }
 
 .nav-toggle {
@@ -222,24 +237,23 @@ a:hover {
 
 .hero-bg {
   position: absolute;
-  inset: -40% -20% auto -20%;
-  height: 85%;
+  inset: -10%;
   background: radial-gradient(
-      ellipse 55% 45% at 18% 25%,
-      rgba(110, 231, 197, 0.09),
-      transparent 52%
-    ),
-    radial-gradient(
-      ellipse 45% 40% at 92% 18%,
-      rgba(167, 139, 250, 0.08),
-      transparent 48%
-    ),
-    radial-gradient(
-      ellipse 50% 35% at 70% 85%,
-      rgba(110, 231, 197, 0.04),
-      transparent 50%
-    );
-  pointer-events: none;
+    120% 80% at 20% 20%,
+    rgba(10, 147, 150, 0.12) 0%,
+    rgba(148, 210, 189, 0.05) 38%,
+    rgba(0, 18, 25, 0) 62%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.15;
+  animation: bgFloat 8s ease-in-out infinite;
+}
+
+@keyframes bgFloat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
 
 .hero-grid {
@@ -297,7 +311,7 @@ a:hover {
   font-weight: 700;
   letter-spacing: -0.035em;
   line-height: 1.04;
-  background: linear-gradient(135deg, #f4f6f8 0%, #a8aeb8 100%);
+  background: linear-gradient(135deg, #e9d8a6 0%, #94d2bd 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -340,8 +354,8 @@ a:hover {
   transform: translate(-50%, -50%);
   background: radial-gradient(
     circle,
-    rgba(110, 231, 197, 0.22) 0%,
-    rgba(110, 231, 197, 0.05) 42%,
+    rgba(10, 147, 150, 0.22) 0%,
+    rgba(10, 147, 150, 0.05) 42%,
     transparent 70%
   );
   filter: blur(36px);
@@ -356,12 +370,12 @@ a:hover {
   padding: 1px;
   background: linear-gradient(
     145deg,
-    rgba(110, 231, 197, 0.45) 0%,
-    rgba(255, 255, 255, 0.12) 38%,
-    rgba(167, 139, 250, 0.35) 100%
+    rgba(10, 147, 150, 0.45) 0%,
+    rgba(233, 216, 166, 0.12) 38%,
+    rgba(148, 210, 189, 0.38) 100%
   );
   box-shadow: 0 4px 3px rgba(0, 0, 0, 0.04), 0 28px 48px -12px rgba(0, 0, 0, 0.55),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    inset 0 1px 0 rgba(233, 216, 166, 0.08);
 }
 
 .hero-portrait-inner {
@@ -376,13 +390,12 @@ a:hover {
   height: 100%;
   object-fit: cover;
   object-position: center 16%;
-  transform: scale(1.14);
-  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.5s ease;
 }
 
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
   .hero-portrait:hover .hero-portrait-img {
-    transform: scale(1.17);
+    transform: scale(1.05);
   }
 }
 
@@ -408,7 +421,7 @@ a:hover {
   font-weight: 500;
   letter-spacing: 0.11em;
   text-transform: uppercase;
-  color: rgba(139, 144, 156, 0.85);
+  color: rgba(148, 210, 189, 0.88);
 }
 
 .hero-portrait-line {
@@ -418,7 +431,7 @@ a:hover {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(110, 231, 197, 0.45)
+    rgba(10, 147, 150, 0.45)
   );
 }
 
@@ -496,12 +509,12 @@ a:hover {
 }
 
 .btn-primary {
-  background: var(--accent);
+  background: var(--accent-cta);
   color: var(--bg);
 }
 
 .btn-primary:hover {
-  background: #5fd4b5;
+  background: var(--accent-cta-hover);
 }
 
 .btn-ghost {
@@ -511,7 +524,7 @@ a:hover {
 }
 
 .btn-ghost:hover {
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(233, 216, 166, 0.22);
   background: var(--surface);
 }
 
@@ -709,8 +722,10 @@ a:hover {
 }
 
 .project-card:hover {
-  border-color: rgba(110, 231, 197, 0.25);
+  border-color: rgba(10, 147, 150, 0.4);
   box-shadow: var(--shadow);
+  transform: translateY(-4px);
+  transition: transform 0.3s ease, border-color 0.3s, box-shadow 0.3s;
 }
 
 .project-visual {
@@ -723,11 +738,102 @@ a:hover {
   overflow: hidden;
 }
 
+/* Figma showcase — flexbox image with overlay */
+.project-visual--figma {
+  padding: 0;
+  background: var(--bg);
+}
+
+.figma-showcase {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.figma-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.figma-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(transparent, rgba(0, 18, 25, 0.95));
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.project-card:hover .figma-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-card:hover .figma-img {
+  transform: scale(1.03);
+}
+
+.figma-label {
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(10, 147, 150, 0.9);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  background: rgba(10, 147, 150, 0.12);
+  border: 1px solid rgba(10, 147, 150, 0.25);
+}
+
+.figma-type {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(233, 216, 166, 0.72);
+  font-style: italic;
+}
+
+/* Embedded video (YouTube / TikTok iframes) */
+.project-visual--embed {
+  padding: 0;
+  background: var(--bg-elevated);
+}
+
+.project-visual--tiktok {
+  aspect-ratio: 9 / 16;
+  background: var(--bg);
+}
+
+.project-video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  background: #000;
+}
+
+.project-video:focus {
+  outline: 2px solid rgba(10, 147, 150, 0.5);
+  outline-offset: -2px;
+}
+
 /* Photo posters — full-bleed image + scrim + overlay copy */
 .project-visual--photo {
   display: block;
   padding: 0;
-  background: #12151a;
+  background: var(--bg-elevated);
 }
 
 .project-visual--photo::after {
@@ -760,9 +866,9 @@ a:hover {
 .project-photo-scrim--school {
   background: linear-gradient(
     180deg,
-    rgba(10, 18, 20, 0.35) 0%,
-    rgba(8, 22, 24, 0.55) 38%,
-    rgba(4, 14, 18, 0.88) 100%
+    rgba(0, 18, 25, 0.35) 0%,
+    rgba(0, 95, 115, 0.55) 38%,
+    rgba(0, 18, 25, 0.92) 100%
   );
 }
 
@@ -808,9 +914,9 @@ a:hover {
 .project-visual[data-accent="a"] {
   background: linear-gradient(
     155deg,
-    #152a28 0%,
-    #1c3834 42%,
-    #14222a 100%
+    #005f73 0%,
+    #0a9396 42%,
+    #001219 100%
   );
 }
 
@@ -820,12 +926,12 @@ a:hover {
   inset: 0;
   background: radial-gradient(
       circle at 20% 15%,
-      rgba(110, 231, 197, 0.14),
+      rgba(10, 147, 150, 0.14),
       transparent 50%
     ),
     radial-gradient(
       circle at 90% 80%,
-      rgba(180, 160, 120, 0.08),
+      rgba(233, 216, 166, 0.07),
       transparent 45%
     );
   pointer-events: none;
@@ -834,9 +940,9 @@ a:hover {
 .project-visual[data-accent="b"] {
   background: linear-gradient(
     160deg,
-    #1a0f0a 0%,
-    #2c1810 45%,
-    #120a08 100%
+    #3d2208 0%,
+    #ca6702 42%,
+    #001219 100%
   );
 }
 
@@ -846,12 +952,12 @@ a:hover {
   inset: 0;
   background: radial-gradient(
       circle at 50% 20%,
-      rgba(255, 160, 90, 0.12),
+      rgba(238, 155, 0, 0.14),
       transparent 55%
     ),
     radial-gradient(
       circle at 80% 90%,
-      rgba(255, 220, 160, 0.05),
+      rgba(233, 216, 166, 0.06),
       transparent 40%
     );
   pointer-events: none;
@@ -860,7 +966,7 @@ a:hover {
 /* Photo cards: ignore gradient layer; image provides the art */
 .project-visual--photo[data-accent="a"],
 .project-visual--photo[data-accent="b"] {
-  background: #101318;
+  background: var(--bg);
 }
 
 .project-visual--photo[data-accent="a"]::after,
@@ -869,7 +975,12 @@ a:hover {
 }
 
 .project-visual[data-accent="c"] {
-  background: linear-gradient(145deg, #1e1630 0%, #2d2048 50%, #181024 100%);
+  background: linear-gradient(
+    145deg,
+    #9b2226 0%,
+    #bb3e03 48%,
+    #001219 100%
+  );
 }
 
 .project-poster {
@@ -882,13 +993,39 @@ a:hover {
   width: 100%;
   height: 100%;
   padding: 1.1rem 1.2rem 1rem;
-  color: rgba(232, 234, 239, 0.95);
+  color: rgba(233, 216, 166, 0.96);
   text-align: left;
 }
 
 /* School poster — copy from live site */
 .project-poster--school {
   align-items: stretch;
+  background-image:
+    linear-gradient(
+      165deg,
+      rgba(0, 18, 25, 0.78) 0%,
+      rgba(0, 18, 25, 0.52) 48%,
+      rgba(0, 95, 115, 0.48) 100%
+    ),
+    url("../images/maitreya-poster.jpg");
+  background-size: cover;
+  background-position: center 32%;
+  background-repeat: no-repeat;
+}
+
+.project-poster--school .poster-quote {
+  text-shadow:
+    0 2px 18px rgba(0, 18, 25, 0.95),
+    0 1px 6px rgba(0, 0, 0, 0.55);
+}
+
+.project-poster--school .poster-kicker,
+.project-poster--school .poster-foot {
+  text-shadow: 0 1px 10px rgba(0, 18, 25, 0.9);
+}
+
+.project-poster--school .poster-stats {
+  border-top-color: rgba(233, 216, 166, 0.18);
 }
 
 .poster-ribbon {
@@ -902,7 +1039,7 @@ a:hover {
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--bg);
-  background: rgba(110, 231, 197, 0.95);
+  background: rgba(238, 155, 0, 0.96);
   border-radius: 4px;
 }
 
@@ -913,7 +1050,7 @@ a:hover {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: rgba(180, 230, 210, 0.75);
+  color: rgba(10, 147, 150, 0.82);
 }
 
 .poster-quote {
@@ -924,7 +1061,7 @@ a:hover {
   font-weight: 500;
   font-style: italic;
   line-height: 1.35;
-  color: rgba(248, 250, 252, 0.95);
+  color: rgba(233, 216, 166, 0.96);
 }
 
 .poster-stats {
@@ -949,7 +1086,7 @@ a:hover {
   font-size: 1.125rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
-  color: #a8f5e0;
+  color: #e9d8a6;
 }
 
 .poster-stats span {
@@ -957,7 +1094,7 @@ a:hover {
   font-size: 0.5625rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: rgba(232, 234, 239, 0.45);
+  color: rgba(233, 216, 166, 0.42);
 }
 
 .poster-foot {
@@ -965,7 +1102,7 @@ a:hover {
   font-family: var(--mono);
   font-size: 0.625rem;
   letter-spacing: 0.02em;
-  color: rgba(110, 231, 197, 0.65);
+  color: rgba(10, 147, 150, 0.65);
 }
 
 /* Film / YouTube poster */
@@ -1007,7 +1144,7 @@ a:hover {
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.02em;
-  color: #fff5eb;
+  color: #e9d8a6;
 }
 
 .poster-film-sub {
@@ -1062,7 +1199,7 @@ a:hover {
 }
 
 .project-body p a:hover {
-  color: #8ef0d4;
+  color: var(--accent-hover);
 }
 
 .project-body {
@@ -1108,7 +1245,7 @@ a:hover {
 }
 
 .project-link:hover {
-  color: #8ef0d4;
+  color: var(--accent-hover);
 }
 
 /* Skills */
@@ -1125,7 +1262,7 @@ a:hover {
   padding: 0.6rem 1rem;
   border-radius: 999px;
   background: var(--accent-dim);
-  border: 1px solid rgba(110, 231, 197, 0.2);
+  border: 1px solid rgba(10, 147, 150, 0.2);
   color: var(--text);
   font-size: 0.9375rem;
   font-weight: 500;
@@ -1156,7 +1293,7 @@ a:hover {
 }
 
 .contact-big:hover {
-  color: #8ef0d4;
+  color: var(--accent-hover);
 }
 
 .contact-phone {
@@ -1223,4 +1360,65 @@ a:hover {
 .to-top:hover {
   color: var(--accent);
   text-decoration: none;
+}
+
+/* —— Cursor follower (mouse, fine pointer only) —— */
+.cursor-followers {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+.cursor-followers * {
+  pointer-events: none;
+}
+
+.cursor-followers.is-hidden .cursor-follow__dot,
+.cursor-followers.is-hidden .cursor-follow__ring {
+  opacity: 0;
+}
+
+.cursor-follow__dot {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  margin-top: -3px;
+  border-radius: 50%;
+  background: var(--palette-cream);
+  box-shadow: 0 0 14px rgba(10, 147, 150, 0.5);
+  opacity: 1;
+  transition: opacity 0.2s ease, transform 0.15s ease-out;
+  will-change: transform;
+}
+
+.cursor-follow__ring {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 38px;
+  height: 38px;
+  margin-left: -19px;
+  margin-top: -19px;
+  border-radius: 50%;
+  border: 1px solid rgba(148, 210, 189, 0.5);
+  opacity: 1;
+  transition: opacity 0.25s ease;
+  will-change: transform;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor-followers {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-follow__dot,
+  .cursor-follow__ring {
+    transition: opacity 0.15s ease;
+  }
 }
